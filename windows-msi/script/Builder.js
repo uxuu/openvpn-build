@@ -60,6 +60,7 @@ function Builder()
         case   437: this.cpOEMMime = "cp437"       ; break;
         case   850: this.cpOEMMime = "ibm850"      ; break;
         case   852: this.cpOEMMime = "ibm852"      ; break;
+        case   936: this.cpOEMMime = "gb2312"      ; break;
         case  1250: this.cpOEMMime = "windows-1250"; break;
         case  1251: this.cpOEMMime = "windows-1251"; break;
         case 65001: this.cpOEMMime = "utf-8"       ; break;
@@ -915,8 +916,14 @@ function DownloadBuildRule(outName, url, depNames)
  */
 DownloadBuildRule.prototype.build = function (builder)
 {
+    var proxy = builder.env("ALL_PROXY") || builder.env("HTTP_PROXY") || builder.env("HTTPS_PROXY");
+    proxy = proxy.replace(/http(s?):\/\//i, "").replace(/\/.*/g, "");
     WScript.Echo("GET: " + this.url + " >> " + this.outNames[0]);
     var req = new ActiveXObject("WinHttp.WinHttpRequest.5.1");
+    if(proxy) {
+        WScript.Echo("PROXY:" + proxy);
+        req.SetProxy(2, proxy, "");
+    }
     req.Open("GET", this.url, false);
     req.Send();
     if (req.Status == "200") {
