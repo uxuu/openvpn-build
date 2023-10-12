@@ -1,4 +1,4 @@
-param(
+﻿param(
     # Must be top directory of openvpn-build checkout
     [string] $topdir = "${PSScriptRoot}/..",
     [string] $arch = "all",
@@ -29,8 +29,8 @@ if ($basedir_exists -ne $True) {
 }
 
 # sane defaults
-$Env:VCPKG_ROOT = "${basedir}\src\vcpkg"
-$Env:VCPKG_OVERLAY_PORTS = "${basedir}\windows-msi\vcpkg-ports"
+$Env:VCPKG_ROOT = "${basedir}\vcpkg"
+$Env:VCPKG_OVERLAY_PORTS = "${basedir}\openvpn-build\windows-msi\vcpkg-ports"
 $Env:CMAKE = "C:\\Program Files\\CMake\\bin\\cmake.exe"
 $Env:ManifestTimestampRFC3161Url = "http://timestamp.digicert.com"
 
@@ -52,7 +52,7 @@ Set-Location "$Env:VCPKG_ROOT"
 & .\bootstrap-vcpkg.bat
 
 ### Build OpenVPN-GUI
-Set-Location "${basedir}\src\openvpn-gui"
+Set-Location "${basedir}\openvpn-gui"
 
 $gui_arch = @()
 switch ($arch)
@@ -113,7 +113,7 @@ $ovpn_arch | ForEach-Object  {
 }
 
 ### Build MSI
-Set-Location "${basedir}\windows-msi"
+Set-Location "${basedir}\openvpn-build\windows-msi"
 
 switch ($arch)
 {
