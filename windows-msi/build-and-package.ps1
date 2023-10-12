@@ -36,8 +36,8 @@ if ($basedir_exists -ne $True) {
 }
 
 # sane defaults
-$Env:VCPKG_ROOT = "${basedir}\src\vcpkg"
-$Env:VCPKG_OVERLAY_PORTS = "${basedir}\windows-msi\vcpkg-ports"
+$Env:VCPKG_ROOT = "${basedir}\vcpkg"
+$Env:VCPKG_OVERLAY_PORTS = "${basedir}\openvpn-build\windows-msi\vcpkg-ports"
 $Env:CMAKE = "C:\\Program Files\\CMake\\bin\\cmake.exe"
 $Env:ManifestTimestampRFC3161Url = "http://timestamp.digicert.com"
 
@@ -59,7 +59,7 @@ Set-Location "$Env:VCPKG_ROOT"
 & .\bootstrap-vcpkg.bat
 
 ### Build OpenVPN-GUI
-Set-Location "${basedir}\src\openvpn-gui"
+Set-Location "${basedir}\openvpn-gui"
 
 $gui_arch = @()
 switch ($arch)
@@ -90,7 +90,7 @@ $gui_arch | ForEach-Object  {
 }
 
 ### Build OpenVPN
-Set-Location "${basedir}\src\openvpn"
+Set-Location "${basedir}\openvpn"
 
 $ovpn_arch = @("amd64", "arm64", "x86")
 if ($arch -ne "all") {
@@ -107,7 +107,7 @@ $ovpn_arch | ForEach-Object  {
 
 ### Sign binaries
 if ($sign) {
-    Set-Location "${basedir}\windows-msi"
+    Set-Location "${basedir}\openvpn-build\windows-msi"
     $Env:SignScript = "sign-openvpn.bat"
     & .\sign-binaries.bat
 } else {
@@ -115,7 +115,7 @@ if ($sign) {
 }
 
 ### Build MSI
-Set-Location "${basedir}\windows-msi"
+Set-Location "${basedir}\openvpn-build\windows-msi"
 
 switch ($arch)
 {
