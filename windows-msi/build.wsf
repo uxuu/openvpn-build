@@ -45,6 +45,7 @@ clean	Cleans intermediate and output files</example>
 
             // Folders
             var
+                souiPath       = WScript.CreateObject("WScript.Shell").Environment("Process").Item("SOUI4PATH"),
                 rootPath       = "..",
                 depsPath       = BuildPath("..", ".."),
                 buildPath      = "tmp",
@@ -57,6 +58,7 @@ clean	Cleans intermediate and output files</example>
             var platformInfo = {
                 "x86": {
                     "buildPath": BuildPath(buildPath, "x86"),
+                    "souiPath": BuildPath(souiPath, "bin"),
                     "openVPNBinPath": BuildPath(depsPath, "openvpn", "out", "build", "win-x86-release", "Release"),
                     "openVPNMsiCAPath": BuildPath(depsPath, "openvpn", "out", "build", "win-x86-release", "src", "openvpnmsica", "Release"),
                     "openVPNServPath": BuildPath(depsPath, "openvpn", "out", "build", "win-x86-release", "src", "openvpnserv", "Release"),
@@ -76,6 +78,7 @@ clean	Cleans intermediate and output files</example>
 
                 "amd64": {
                     "buildPath": BuildPath(buildPath, "amd64"),
+                    "souiPath": BuildPath(souiPath, "bin-x64"),
                     "openVPNBinPath": BuildPath(depsPath, "openvpn", "out", "build", "win-amd64-release", "Release"),
                     "openVPNMsiCAPath": BuildPath(depsPath, "openvpn", "out", "build", "win-amd64-release", "src", "openvpnmsica", "Release"),
                     "openVPNServPath": BuildPath(depsPath, "openvpn", "out", "build", "win-amd64-release", "src", "openvpnserv", "Release"),
@@ -95,6 +98,7 @@ clean	Cleans intermediate and output files</example>
 
                 "arm64": {
                     "buildPath": BuildPath(buildPath, "arm64"),
+                    "souiPath": BuildPath(souiPath, "bin-arm64"),
                     "openVPNBinPath": BuildPath(depsPath, "openvpn", "out", "build", "win-arm64-release", "Release"),
                     "openVPNMsiCAPath": BuildPath(depsPath, "openvpn", "out", "build", "win-arm64-release", "src", "openvpnmsica", "Release"),
                     "openVPNServPath": BuildPath(depsPath, "openvpn", "out", "build", "win-arm64-release", "src", "openvpnserv", "Release"),
@@ -236,6 +240,7 @@ clean	Cleans intermediate and output files</example>
                             "-spdb",
                             "-ext WixNetFxExtension",
                             "-b build=\""         + _CMD(buildPath    ) + "\"",
+                            "-b souibin=\""       + _CMD(p.souiPath) + "\"",
                             "-b openvpndoc=\""    + _CMD(p.openVPNDocPath) + "\"",
                             "-b openvpnbin=\""    + _CMD(p.openVPNBinPath) + "\"",
                             "-b openvpnmsica=\""  + _CMD(p.openVPNMsiCAPath) + "\"",
@@ -288,6 +293,17 @@ clean	Cleans intermediate and output files</example>
                                 BuildPath(p.openVPNGuiBinPath, "openvpn-gui.exe"),
                                 BuildPath(p.openVPNServPath, "openvpnserv.exe"),
                                 BuildPath(p.openVPNTapCtlPath, "tapctl.exe"),
+                                BuildPath(p.souiPath, "soui4.dll"),
+                                BuildPath(p.souiPath, "utilities4.dll"),
+                                BuildPath(p.souiPath, "render-d2d.dll"),
+                                BuildPath(p.souiPath, "render-gdi.dll"),
+                                BuildPath(p.souiPath, "render-skia.dll"),
+                                BuildPath(p.souiPath, "imgdecoder-png.dll"),
+                                BuildPath(p.souiPath, "imgdecoder-stb.dll"),
+                                BuildPath(p.souiPath, "imgdecoder-wic.dll"),
+                                BuildPath(p.souiPath, "imgdecoder-gdip.dll"),
+                                BuildPath(p.souiPath, "resprovider-zip.dll"),
+                                BuildPath(p.souiPath, "soui-sys-resource.dll"),
                                 BuildPath("vcredist", p.wixPlat, "vcruntime140.dll"),
                                 BuildPath(buildPath, "openvpnserv2.exe"),
                                 BuildPath(buildPath, "README-config.txt"),
