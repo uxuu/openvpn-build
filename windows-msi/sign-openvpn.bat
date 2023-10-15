@@ -24,3 +24,6 @@ java -jar %JsignJar%^
  ..\..\openvpn\out\build\win-%SignArch%-release\vcpkg_installed\%SignArchAlt%-windows-ovpn\bin\*.dll^
  ..\..\openvpn-gui\out\build\%SignArchAlt%\Release\openvpn-gui.exe^
  ..\..\openvpn-gui\out\build\%SignArchAlt%\Release\*.dll
+ %SOUI4PATH%\bin-x64\*.dll^
+ %SOUI4PATH%\bin-arm64\*.dll^
+ %SOUI4PATH%\bin\*.dll
