@@ -659,6 +659,17 @@
                         <RemoveFile Id="nsis.openvpn.bin.openvpnserv.exe" Property="NSIS.OPENVPN.BIN" Name="openvpnserv.exe" On="install"/>
                         <RemoveFile Id="nsis.openvpn.bin.openvpnserv2.exe" Property="NSIS.OPENVPN.BIN" Name="openvpnserv2.exe" On="install"/>
                         <RemoveFile Id="nsis.openvpn.bin.ssleay32.dll" Property="NSIS.OPENVPN.BIN" Name="ssleay32.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.soui4.dll" Property="NSIS.OPENVPN.BIN" Name="soui4.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.utilities4.dll" Property="NSIS.OPENVPN.BIN" Name="utilities4.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.render_d2d.dll" Property="NSIS.OPENVPN.BIN" Name="render-d2d.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.render_gdi.dll" Property="NSIS.OPENVPN.BIN" Name="render-gdi.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.render_skia.dll" Property="NSIS.OPENVPN.BIN" Name="render-skia.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.imgdecoder_png.dll" Property="NSIS.OPENVPN.BIN" Name="imgdecoder-png.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.imgdecoder_stb.dll" Property="NSIS.OPENVPN.BIN" Name="imgdecoder-stb.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.imgdecoder_wic.dll" Property="NSIS.OPENVPN.BIN" Name="imgdecoder-wic.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.imgdecoder_gdip.dll" Property="NSIS.OPENVPN.BIN" Name="imgdecoder-gdip.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.resprovider_zip.dll" Property="NSIS.OPENVPN.BIN" Name="resprovider-zip.dll" On="install"/>
+                        <RemoveFile Id="nsis.openvpn.bin.soui_sys_resource.dll" Property="NSIS.OPENVPN.BIN" Name="soui-sys-resource.dll" On="install"/>
                         <RemoveFolder Id="nsis.openvpn.bin" Property="NSIS.OPENVPN.BIN" On="install"/>
                         <RemoveFile Id="nsis.openvpn.doc.INSTALL_win32.txt" Property="NSIS.OPENVPN.DOC" Name="INSTALL-win32.txt" On="install"/>
                         <RemoveFile Id="nsis.openvpn.doc.license.txt" Property="NSIS.OPENVPN.DOC" Name="license.txt" On="install"/>
@@ -699,6 +710,17 @@
                         <RemoveFile Id="nsis.openvpn.x86.bin.openvpn_gui.exe" Property="NSIS.OPENVPN.X86.BIN" Name="openvpn-gui.exe" On="install"/>
                         <RemoveFile Id="nsis.openvpn.x86.bin.openvpnserv.exe" Property="NSIS.OPENVPN.X86.BIN" Name="openvpnserv.exe" On="install"/>
                         <RemoveFile Id="nsis.openvpn.x86.bin.ssleay32.dll" Property="NSIS.OPENVPN.X86.BIN" Name="ssleay32.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.soui4.dll" Property="NSIS.OPENVPN.X86.BIN" Name="soui4.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.utilities4.dll" Property="NSIS.OPENVPN.X86.BIN" Name="utilities4.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.render_d2d.dll" Property="NSIS.OPENVPN.X86.BIN" Name="render-d2d.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.render_gdi.dll" Property="NSIS.OPENVPN.X86.BIN" Name="render-gdi.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.render_skia.dll" Property="NSIS.OPENVPN.X86.BIN" Name="render-skia.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.imgdecoder_png.dll" Property="NSIS.OPENVPN.X86.BIN" Name="imgdecoder-png.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.imgdecoder_stb.dll" Property="NSIS.OPENVPN.X86.BIN" Name="imgdecoder-stb.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.imgdecoder_wic.dll" Property="NSIS.OPENVPN.X86.BIN" Name="imgdecoder-wic.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.imgdecoder_gdip.dll" Property="NSIS.OPENVPN.X86.BIN" Name="imgdecoder-gdip.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.resprovider_zip.dll" Property="NSIS.OPENVPN.X86.BIN" Name="resprovider-zip.dll" On="install"/>
+                        <RemoveFile Id="nsis.x86.openvpn.bin.soui_sys_resource.dll" Property="NSIS.OPENVPN.X86.BIN" Name="soui-sys-resource.dll" On="install"/>
                         <RemoveFolder Id="nsis.openvpn.x86.bin" Property="NSIS.OPENVPN.X86.BIN" On="install"/>
                         <RemoveFile Id="nsis.openvpn.x86.doc.INSTALL_win32.txt" Property="NSIS.OPENVPN.X86.DOC" Name="INSTALL-win32.txt" On="install"/>
                         <RemoveFile Id="nsis.openvpn.x86.doc.license.txt" Property="NSIS.OPENVPN.X86.DOC" Name="license.txt" On="install"/>
@@ -773,6 +795,39 @@
                         </Component>
                         <Component Id="bin.openvpn_gui.exe" Guid="{5A893CD4-EA7E-4887-89D0-15BBE904FE11}">
                             <File Id="bin.openvpn_gui.exe" Name="openvpn-gui.exe" Source="!(bindpath.openvpnguibin)openvpn-gui.exe"/>
+                        </Component>
+                        <Component Id="bin.soui4.dll" Guid="{DB9EE833-E44C-48C7-9602-847277688197}">
+                            <File Id="bin.soui4.dll" Name="soui4.dll" Source="!(bindpath.souibin)soui4.dll"/>
+                        </Component>
+                        <Component Id="bin.utilities4.dll" Guid="{6A94F8DA-7F97-48D8-8A01-E110B9F0DB23}">
+                            <File Id="bin.utilities4.dll" Name="utilities4.dll" Source="!(bindpath.souibin)utilities4.dll"/>
+                        </Component>
+                        <Component Id="bin.render_d2d.dll" Guid="{6005DA4B-0BC4-45AE-AD19-32A4240B1257}">
+                            <File Id="bin.render_d2d.dll" Name="render-d2d.dll" Source="!(bindpath.souibin)render-d2d.dll"/>
+                        </Component>
+                        <Component Id="bin.render_gdi.dll" Guid="{F38A80AE-7EC5-4FC8-B836-5FC1064C6520}">
+                            <File Id="bin.render_gdi.dll" Name="render-gdi.dll" Source="!(bindpath.souibin)render-gdi.dll"/>
+                        </Component>
+                        <Component Id="bin.render_skia.dll" Guid="{28E382DC-AC0A-4145-A3D5-899DBD5EC05D}">
+                            <File Id="bin.render_skia.dll" Name="render-skia.dll" Source="!(bindpath.souibin)render-skia.dll"/>
+                        </Component>
+                        <Component Id="bin.imgdecoder_png.dll" Guid="{8138F08F-8A26-44F3-A464-660D7F937586}">
+                            <File Id="bin.imgdecoder_png.dll" Name="imgdecoder-png.dll" Source="!(bindpath.souibin)imgdecoder-png.dll"/>
+                        </Component>
+                        <Component Id="bin.imgdecoder_stb.dll" Guid="{D80761FB-3A37-4B13-9BAA-DC34C45BBA02}">
+                            <File Id="bin.imgdecoder_stb.dll" Name="imgdecoder-stb.dll" Source="!(bindpath.souibin)imgdecoder-stb.dll"/>
+                        </Component>
+                        <Component Id="bin.imgdecoder_wic.dll" Guid="{F0348418-D9A0-44C8-89CF-E81765EDBB78}">
+                            <File Id="bin.imgdecoder_wic.dll" Name="imgdecoder-wic.dll" Source="!(bindpath.souibin)imgdecoder-wic.dll"/>
+                        </Component>
+                        <Component Id="bin.imgdecoder_gdip.dll" Guid="{B2C23935-FB19-4B67-952B-7960E32FB7F7}">
+                            <File Id="bin.imgdecoder_gdip.dll" Name="imgdecoder-gdip.dll" Source="!(bindpath.souibin)imgdecoder-gdip.dll"/>
+                        </Component>
+                        <Component Id="bin.resprovider_zip.dll" Guid="{C13C57BE-D8D6-44C9-B1F7-043A611F62DE}">
+                            <File Id="bin.resprovider_zip.dll" Name="resprovider-zip.dll" Source="!(bindpath.souibin)resprovider-zip.dll"/>
+                        </Component>
+                        <Component Id="bin.soui_sys_resource.dll" Guid="{610830D2-6DA6-429B-AD8A-7BB25E43056B}">
+                            <File Id="bin.soui_sys_resource.dll" Name="soui-sys-resource.dll" Source="!(bindpath.souibin)soui-sys-resource.dll"/>
                         </Component>
                         <Component Id="bin.openvpnserv.exe" Guid="{43A4F408-9399-4BD7-9978-0ECE4A582929}">
                             <File Name="openvpnserv.exe" Source="!(bindpath.openvpnserv)openvpnserv.exe"/>
@@ -1625,6 +1680,17 @@
                 Display="expand">
                 <Condition Level="1"><![CDATA[NSIS.OPENVPN.BIN.OPENVPN_GUI.EXE OR NSIS.OPENVPN.X86.BIN.OPENVPN_GUI.EXE]]></Condition>
                 <ComponentRef Id="bin.openvpn_gui.exe"/>
+                <ComponentRef Id="bin.soui4.dll"/>
+                <ComponentRef Id="bin.utilities4.dll"/>
+                <ComponentRef Id="bin.render_d2d.dll"/>
+                <ComponentRef Id="bin.render_gdi.dll"/>
+                <ComponentRef Id="bin.render_skia.dll"/>
+                <ComponentRef Id="bin.imgdecoder_png.dll"/>
+                <ComponentRef Id="bin.imgdecoder_stb.dll"/>
+                <ComponentRef Id="bin.imgdecoder_wic.dll"/>
+                <ComponentRef Id="bin.imgdecoder_gdip.dll"/>
+                <ComponentRef Id="bin.resprovider_zip.dll"/>
+                <ComponentRef Id="bin.soui_sys_resource.dll"/>
                 <ComponentRef Id="shortcut.openvpn_gui.exe"/>
                 <ComponentRef Id="shortcut.openvpn_gui.exe.desktop"/>
                 <ComponentRef Id="reg.disable_save_passwords"/>
