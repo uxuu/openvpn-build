@@ -14,19 +14,19 @@ rem Run this script before packaging.
 signtool.exe sign /sha1 "%ManifestCertificateThumbprint%" /fd sha256 /tr "%ManifestTimestampRFC3161Url%" /td sha256^
  ..\..\openvpn\out\build\win-amd64-release\Release\*.exe^
  ..\..\openvpn\out\build\win-amd64-release\Release\*.dll^
- ..\..\openvpn\out\build\win-amd64-release\..\openvpnmsica\Release\*.exe^
- ..\..\openvpn\out\build\win-amd64-release\..\openvpnserv\Release\*.exe^
- ..\..\openvpn\out\build\win-amd64-release\..\tapctl\Release\*.exe^
+ ..\..\openvpn\out\build\win-amd64-release\src\openvpnmsica\Release\*.dll^
+ ..\..\openvpn\out\build\win-amd64-release\src\openvpnserv\Release\*.exe^
+ ..\..\openvpn\out\build\win-amd64-release\src\tapctl\Release\*.exe^
  ..\..\openvpn\out\build\win-arm64-release\Release\*.exe^
  ..\..\openvpn\out\build\win-arm64-release\Release\*.dll^
- ..\..\openvpn\out\build\win-arm64-release\..\openvpnmsica\Release\*.exe^
- ..\..\openvpn\out\build\win-arm64-release\..\openvpnserv\Release\*.exe^
- ..\..\openvpn\out\build\win-arm64-release\..\tapctl\Release\*.exe^
+ ..\..\openvpn\out\build\win-arm64-release\src\openvpnmsica\Release\*.dll^
+ ..\..\openvpn\out\build\win-arm64-release\src\openvpnserv\Release\*.exe^
+ ..\..\openvpn\out\build\win-arm64-release\src\tapctl\Release\*.exe^
  ..\..\openvpn\out\build\win-x86-release\Release\*.exe^
  ..\..\openvpn\out\build\win-x86-release\Release\*.dll^
- ..\..\openvpn\out\build\win-x86-release\..\openvpnmsica\Release\*.exe^
- ..\..\openvpn\out\build\win-x86-release\..\openvpnserv\Release\*.exe^
- ..\..\openvpn\out\build\win-x86-release\..\tapctl\Release\*.exe^
+ ..\..\openvpn\out\build\win-x86-release\src\openvpnmsica\Release\*.dll^
+ ..\..\openvpn\out\build\win-x86-release\src\openvpnserv\Release\*.exe^
+ ..\..\openvpn\out\build\win-x86-release\src\tapctl\Release\*.exe^
  ..\..\openvpn\out\build\win-amd64-release\vcpkg_installed\x64-windows-ovpn\tools\openssl\openssl.exe^
  ..\..\openvpn\out\build\win-amd64-release\vcpkg_installed\x64-windows-ovpn\bin\*.dll^
  ..\..\openvpn\out\build\win-arm64-release\vcpkg_installed\arm64-windows-ovpn\tools\openssl\openssl.exe^
@@ -38,4 +38,7 @@ signtool.exe sign /sha1 "%ManifestCertificateThumbprint%" /fd sha256 /tr "%Manif
  ..\..\openvpn-gui\out\build\arm64\Release\openvpn-gui.exe^
  ..\..\openvpn-gui\out\build\arm64\Release\*.dll^
  ..\..\openvpn-gui\out\build\x86\Release\openvpn-gui.exe^
- ..\..\openvpn-gui\out\build\x86\Release\*.dll
+ ..\..\openvpn-gui\out\build\x86\Release\*.dll^
+ %SOUI4PATH%\bin-x64\*.dll^
+ %SOUI4PATH%\bin-arm64\*.dll^
+ %SOUI4PATH%\bin\*.dll
