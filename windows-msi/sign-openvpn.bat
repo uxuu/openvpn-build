@@ -7,14 +7,7 @@ rem RFC3161-compliant web service.
 rem
 rem Run this script before packaging.
 
-java -jar %JsignJar%^
-    --storetype %SigningStoreType%^
-    --storepass %SigningStorePass%^
-    --keystore %SigningKeyStore%^
-    --alias %SigningStoreKeyName%^
-    --certfile %SigningCertificateFile%^
-    --tsmode RFC3161^
-    --tsaurl %ManifestTimestampRFC3161Url%^
+signtool.exe sign /sha1 "%ManifestCertificateThumbprint%" /fd sha256 /tr "%ManifestTimestampRFC3161Url%" /td sha256 ^
  ..\..\openvpn\out\build\win-%SignArch%-release\Release\openvpn.exe^
  ..\..\openvpn\out\build\win-%SignArch%-release\Release\lib*.dll^
  ..\..\openvpn\out\build\win-%SignArch%-release\src\openvpnmsica\Release\*.dll^
@@ -23,7 +16,5 @@ java -jar %JsignJar%^
  ..\..\openvpn\out\build\win-%SignArch%-release\vcpkg_installed\%SignArchAlt%-windows-ovpn\tools\openssl\openssl.exe^
  ..\..\openvpn\out\build\win-%SignArch%-release\vcpkg_installed\%SignArchAlt%-windows-ovpn\bin\*.dll^
  ..\..\openvpn-gui\out\build\%SignArchAlt%\Release\openvpn-gui.exe^
- ..\..\openvpn-gui\out\build\%SignArchAlt%\Release\*.dll
- %SOUI4PATH%\bin-x64\*.dll^
- %SOUI4PATH%\bin-arm64\*.dll^
- %SOUI4PATH%\bin\*.dll
+ ..\..\openvpn-gui\out\build\%SignArchAlt%\Release\*.dll^
+ %SOUI4PATH%\%SignArchBin%\*.dll

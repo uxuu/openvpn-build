@@ -40,11 +40,6 @@ if ((Test-Path "${PSScriptRoot}/build-and-package-env.ps1") -ne $True) {
     . "${PSScriptRoot}/build-and-package-env.ps1"
 }
 
-if ($sign -And -not($Env:SigningCertificateFile)) {
-    Write-Host "ERROR: signing requested but Env:SigningCertificateFile not set"
-    exit 1
-}
-
 # At the end of the build return to the directory we started from
 $cwd = Get-Location
 
@@ -91,21 +86,25 @@ if ($arch -ne "all") {
 $ovpn_arch | ForEach-Object  {
 	$platform = $_
     Write-Host "Building openvpn ${platform}"
-    Set-Location "${basedir}\src\openvpn"
+    Set-Location "${basedir}\openvpn"
     # VCPKG_HOST_TRIPLET required to use host tools like pkgconf
     & "$Env:CMAKE" --preset "win-${platform}-release"
     & "$Env:CMAKE" --build --preset "win-${platform}-release"
 
     ### Sign binaries
     if ($sign) {
-        Set-Location "${basedir}\windows-msi"
+        Set-Location "${basedir}\openvpn-build\windows-msi"
         $Env:SignArch = $platform
         if ($platform -ne "amd64") {
             $Env:SignArchAlt = $platform
         } else {
             $Env:SignArchAlt = "x64"
         }
-
+		if ($platform -ne "x86") {
+			$Env:SignArchBin = "bin-$Env:SignArchAlt"
+		} else {
+			$Env:SignArchBin = "bin"
+		}
         & .\sign-openvpn.bat
     } else {
         Write-Host "Skip signing binaries"
